@@ -1,4 +1,5 @@
 #!/bin/bash
-sudo apt update -y
-ssudo apt-get install openjdk-8-jdk
-sudo apt-get install -y maven
+
+# Update system and install required dependencies
+sudo yum update -y
+sudo yum install -y git maven
