@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install: 
+    runtime-versions:
+      java: corretto8
+    commands:
+      - echo "Installing dependencies"
+  build:
+    commands:
+      - echo "Building the project"
+      - mvn clean install -f src/pom.xml
+      - mvn package -f src/pom.xml
+  post_build:
+    commands:
+      - echo "Starting Jetty server"
+      - mvn jetty:run -f src/web/app/pom.xml &
+artifacts:
+  files:
+    - '**/*'
