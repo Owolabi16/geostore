@@ -11,13 +11,15 @@ TOMCAT_USER=tomcat
 sudo apt update -y
 sudo apt install -y openjdk-8-jdk wget
 
+# Create Tomcat directory
+sudo mkdir -p $TOMCAT_DIR
+
 # Create Tomcat user
 sudo useradd -m -U -d $TOMCAT_DIR -s /bin/false $TOMCAT_USER
 
 # Download and install Tomcat
 cd /tmp
 wget https://downloads.apache.org/tomcat/tomcat-9/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
-sudo mkdir -p $TOMCAT_DIR
 sudo tar -xzf apache-tomcat-$TOMCAT_VERSION.tar.gz -C $TOMCAT_DIR --strip-components=1
 sudo chown -R $TOMCAT_USER:$TOMCAT_USER $TOMCAT_DIR
 
