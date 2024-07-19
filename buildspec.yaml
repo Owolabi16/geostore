@@ -19,4 +19,5 @@ artifacts:
   files:
     - appspec.yml
     - scripts/**
-    - target/*.war
+    - '**/target/*.war'
+  discard-paths: yes
