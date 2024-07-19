@@ -19,5 +19,5 @@ artifacts:
   files:
     - appspec.yml
     - scripts/**
-    - '**/target/*.jar'
+    - src/target/geostore-root-2.2-SNAPSHOT-tests.jar
   discard-paths: yes
