@@ -12,7 +12,7 @@ hooks:
     - location: ./install_dependencies.sh
       timeout: 300
       runas: root
-    - location: ./install_tomcat.sh
+    - location: ./install_tom.sh
       timeout: 300
       runas: root
   Install:
