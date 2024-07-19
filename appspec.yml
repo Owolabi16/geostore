@@ -5,29 +5,29 @@ files:
     destination: /var/lib/tomcat/webapps/
 hooks:
   ApplicationStop:
-    - location: ./stop_application.sh
+    - location: scripts/stop_application.sh
       timeout: 300
       runas: root
   BeforeInstall:
-    - location: ./install_dependencies.sh
+    - location: scripts/install_dependencies.sh
       timeout: 300
       runas: root
-    - location: ./install_tomcat.sh
+    - location: scripts/install_tomcat.sh
       timeout: 300
       runas: root
   Install:
-    - location: ./prepare_application.sh
+    - location: scripts/prepare_application.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: ./set_permissions.sh
+    - location: scripts/set_permissions.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: ./start_application.sh
+    - location: scripts/start_application.sh
       timeout: 300
       runas: root
   ValidateService:
-    - location: ./validate_service.sh
+    - location: scripts/validate_service.sh
       timeout: 300
       runas: root
