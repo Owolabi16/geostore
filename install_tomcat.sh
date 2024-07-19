@@ -12,11 +12,11 @@ sudo apt update -y
 sudo apt install -y openjdk-8-jdk wget
 
 # Create Tomcat directory if it does not exist
-# if [ ! -d "$TOMCAT_DIR" ]; then
-#     sudo mkdir -p $TOMCAT_DIR
-# else
-#     echo "Directory $TOMCAT_DIR already exists"
-# fi
+if [ ! -d "$TOMCAT_DIR" ]; then
+    sudo mkdir -p $TOMCAT_DIR
+else
+    echo "Directory $TOMCAT_DIR already exists"
+fi
 
 # Check if the Tomcat user already exists before creating it
 if id "$TOMCAT_USER" &>/dev/null; then
