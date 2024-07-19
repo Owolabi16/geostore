@@ -14,8 +14,12 @@ sudo apt install -y openjdk-8-jdk wget
 # Create Tomcat directory
 sudo mkdir -p $TOMCAT_DIR
 
-# Create Tomcat user
-sudo useradd -m -U -d $TOMCAT_DIR -s /bin/false $TOMCAT_USER
+# Check if the Tomcat user already exists before creating it
+if id "$TOMCAT_USER" &>/dev/null; then
+    echo "User $TOMCAT_USER already exists"
+else
+    sudo useradd -m -U -d $TOMCAT_DIR -s /bin/false $TOMCAT_USER
+fi
 
 # Download and install Tomcat
 cd /tmp
