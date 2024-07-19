@@ -6,7 +6,7 @@ phases:
       java: corretto8
     commands:
       - echo "Installing Maven"
-      - yum install -y maven
+      - apt install -y maven
       - echo "Installing dependencies"
   build:
     commands:
