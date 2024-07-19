@@ -5,16 +5,18 @@ phases:
     runtime-versions:
       java: corretto8
     commands:
+      - echo "Installing Maven"
+      - yum install -y maven
       - echo "Installing dependencies"
   build:
     commands:
       - echo "Building the project"
       - mvn clean install -f src/pom.xml
-      - mvn package -f src/pom.xml
   post_build:
     commands:
-      - echo "Starting Jetty server"
-      - mvn jetty:run -f src/web/app/pom.xml &
+      - echo "Build completed"
 artifacts:
   files:
-    - '**/*'
+    - appspec.yml
+    - scripts/**
+    - target/*.war
