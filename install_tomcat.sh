@@ -1,35 +1,35 @@
-#!/bin/bash
+# #!/bin/bash
 
-set -e
+# set -e
 
-# Variables
-TOMCAT_VERSION=9.0.56
-TOMCAT_DIR=/opt/tomcat
-TOMCAT_USER=tomcat
+# # Variables
+# TOMCAT_VERSION=9.0.56
+# TOMCAT_DIR=/opt/tomcat
+# TOMCAT_USER=tomcat
 
-# Update package list and install dependencies
-sudo apt update -y
-sudo apt install -y openjdk-8-jdk wget
+# # Update package list and install dependencies
+# sudo apt update -y
+# sudo apt install -y openjdk-8-jdk wget
 
-# Create Tomcat directory if it does not exist
-if [ ! -d "$TOMCAT_DIR" ]; then
-    sudo mkdir -p $TOMCAT_DIR
-else
-    echo "Directory $TOMCAT_DIR already exists"
-fi
+# # Create Tomcat directory if it does not exist
+# if [ ! -d "$TOMCAT_DIR" ]; then
+#     sudo mkdir -p $TOMCAT_DIR
+# else
+#     echo "Directory $TOMCAT_DIR already exists"
+# fi
 
-# Check if the Tomcat user already exists before creating it
-if id "$TOMCAT_USER" &>/dev/null; then
-    echo "User $TOMCAT_USER already exists"
-else
-    sudo useradd -m -U -d $TOMCAT_DIR -s /bin/false $TOMCAT_USER
-fi
+# # Check if the Tomcat user already exists before creating it
+# if id "$TOMCAT_USER" &>/dev/null; then
+#     echo "User $TOMCAT_USER already exists"
+# else
+#     sudo useradd -m -U -d $TOMCAT_DIR -s /bin/false $TOMCAT_USER
+# fi
 
-# Download and install Tomcat
-cd /tmp
-wget https://downloads.apache.org/tomcat/tomcat-9/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
-sudo tar -xzf apache-tomcat-$TOMCAT_VERSION.tar.gz -C $TOMCAT_DIR --strip-components=1
-sudo chown -R $TOMCAT_USER:$TOMCAT_USER $TOMCAT_DIR
+# # Download and install Tomcat
+# cd /tmp
+# wget https://downloads.apache.org/tomcat/tomcat-9/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
+# sudo tar -xzf apache-tomcat-$TOMCAT_VERSION.tar.gz -C $TOMCAT_DIR --strip-components=1
+# sudo chown -R $TOMCAT_USER:$TOMCAT_USER $TOMCAT_DIR
 
 # Set up Tomcat as a systemd service
 sudo bash -c 'cat << EOF > /etc/systemd/system/tomcat.service
