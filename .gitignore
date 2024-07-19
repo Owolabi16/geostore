@@ -14,26 +14,26 @@ catalog.xml
 *iml
 .idea
 
-target
-src/core/model/target
-src/core/persistence/target
-src/core/target
-src/core/security/target
-src/core/services-api/target
-src/core/services-impl/target
-src/core/security/target
-src/modules/target
-src/modules/rest/api/target
-src/modules/rest/client/target
-src/modules/rest/extjs/target
-src/modules/rest/impl/target
-src/modules/rest/target
-src/modules/rest/test/target
-src/modules/rest/auditing/target/
-src/target
-src/web/app/target
-src/web/target
-src/core/security/target
+# target
+# src/core/model/target
+# src/core/persistence/target
+# src/core/target
+# src/core/security/target
+# src/core/services-api/target
+# src/core/services-impl/target
+# src/core/security/target
+# src/modules/target
+# src/modules/rest/api/target
+# src/modules/rest/client/target
+# src/modules/rest/extjs/target
+# src/modules/rest/impl/target
+# src/modules/rest/target
+# src/modules/rest/test/target
+# src/modules/rest/auditing/target/
+# src/target
+# src/web/app/target
+# src/web/target
+# src/core/security/target
 
 #h2_disk database
 src/web/app/test.trace.db

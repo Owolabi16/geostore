@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: 'src/target/*.war'
+  - source: '**/target/*.jar'
     destination: /var/lib/tomcat/webapps/
 hooks:
   ApplicationStop:
@@ -9,12 +9,12 @@ hooks:
       timeout: 300
       runas: root
   BeforeInstall:
-    # - location: scripts/install_dependencies.sh
-    #   timeout: 300
-    #   runas: root
-    # - location: scripts/install_tomcat.sh
-    #   timeout: 300
-    #   runas: root
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+    - location: scripts/install_tomcat.sh
+      timeout: 300
+      runas: root
   Install:
     - location: scripts/prepare_application.sh
       timeout: 300
