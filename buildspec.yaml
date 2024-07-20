@@ -1,23 +1,20 @@
 version: 0.2
 
 phases:
-  install: 
-    runtime-versions:
-      java: corretto8
+  install:
     commands:
-      - echo "Installing Maven"
-      - yum install -y maven
       - echo "Installing dependencies"
+  pre_build:
+    commands:
+      - echo "Preparing for build"
   build:
     commands:
       - echo "Building the project"
-      - mvn clean install -f src/pom.xml
+      - mvn clean install -f pom.xml
   post_build:
     commands:
-      - echo "Build completed"
+      - echo "Starting Jetty server"
+      - mvn jetty:run -f web/app/pom.xml &
 artifacts:
   files:
-    - appspec.yml
-    - scripts/**
-    - src/src/target/geostore-root-2.2-SNAPSHOT-tests.jar
-  discard-paths: yes
+    - '**/*'
