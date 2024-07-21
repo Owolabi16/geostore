@@ -5,7 +5,7 @@ files:
     destination: /opt/tomcat/webapps/
 hooks:
   ApplicationStop:
-    - location: scripts/stop_application.sh
+    - location: ./stop_application.sh
       timeout: 300
       runas: root
   BeforeInstall:
