@@ -35,27 +35,27 @@
 version: 0.0
 os: linux
 files:
-  - source: deployment.zip
+  - source: /
     destination: /opt/myapplication
     overwrite: yes
 hooks:
   ApplicationStop:
-    - location: /opt/myapplication/scripts/stop_application.sh
+    - location: scripts/stop_application.sh
       timeout: 300
       runas: root
   BeforeInstall:
-    - location: /opt/myapplication/scripts/before_install.sh
+    - location: scripts/before_install.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: /opt/myapplication/scripts/after_install.sh
+    - location: scripts/after_install.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: /opt/myapplication/scripts/start_application.sh
+    - location: scripts/start_application.sh
       timeout: 300
       runas: root
   ValidateService:
-    - location: /opt/myapplication/scripts/validate_service.sh
+    - location: scripts/validate_service.sh
       timeout: 300
       runas: root
