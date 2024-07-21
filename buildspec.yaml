@@ -1,7 +1,7 @@
 version: 0.2
 
 phases:
-  install: 
+  install:
     runtime-versions:
       java: corretto8
     commands:
@@ -17,13 +17,13 @@ phases:
       - echo "Post-build phase"
       - mkdir -p deployment/scripts
       - cp src/target/*.jar deployment/
-      - cp scripts/* deployment/scripts/
-      - cp appspec.yml deployment/
-      - cd deployment
-      - zip -r ../deployment.zip .
+      - cp -r scripts/* deployment/scripts/
 artifacts:
   files:
-    - deployment.zip
+    - deployment/*
+    - appspec.yml
+    - scripts/**
+
 
 
 
