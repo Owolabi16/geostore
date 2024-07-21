@@ -23,14 +23,15 @@ phases:
       # - cp appspec.yml deployment/
       - cd deployment
       - zip -r ../deployment.zip .
-# artifacts:
-#   files:
-#     - deployment.zip
-#     - appspec.yml
-#     - scripts/*
 artifacts:
   files:
+    - deployment.zip
     - appspec.yml
+    - scripts/stop_application.sh
     - scripts/**
-    - /target/*.jar
-  discard-paths: yes
+# artifacts:
+#   files:
+#     - appspec.yml
+#     - scripts/**
+#     - /target/*.jar
+#   discard-paths: yes
