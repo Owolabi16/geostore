@@ -8,7 +8,7 @@ unzip deployment.zip -d /opt/codedeploy-agent/deployment-root/*/d-*/deployment-a
 
 # Verify the contents of the unzipped directory
 ls -l /opt/codedeploy-agent/deployment-root/*/d-*/deployment-archive
-
+echo "new build"
 #!/bin/bash
 
 # # Find the latest deployment directory
