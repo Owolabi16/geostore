@@ -22,10 +22,11 @@ phases:
       - cp -r scripts/stop_application.sh deployment/
       - cp appspec.yml deployment/
       - cd deployment
-      - zip -r ../deployment.zip .
+      # - zip -r ../deployment.zip .
 artifacts:
   files:
-    - deployment.zip
+    # - deployment.zip
+    - deployment
     - appspec.yml
     - scripts/**
 # artifacts:
