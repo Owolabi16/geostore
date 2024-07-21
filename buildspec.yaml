@@ -14,20 +14,49 @@ phases:
       - mvn clean install -f src/pom.xml
   post_build:
     commands:
-      - echo project launch
-      - echo Post-build phase
-      - mkdir -p deployment
+      - echo "Post-build phase"
+      - mkdir -p deployment/scripts
       - cp src/target/*.jar deployment/
-      - cp -r scripts/ deployment/
-      - cp -r scripts/stop_application.sh deployment/
+      - cp scripts/* deployment/scripts/
       - cp appspec.yml deployment/
       - cd deployment
       - zip -r ../deployment.zip .
 artifacts:
   files:
     - deployment.zip
-    - appspec.yml
-    - scripts/**
+
+
+
+# version: 0.2
+
+# phases:
+#   install: 
+#     runtime-versions:
+#       java: corretto8
+#     commands:
+#       - echo "Installing Maven"
+#       - yum install -y maven
+#       - echo "Installing dependencies"
+#   build:
+#     commands:
+#       - echo "Building the project"
+#       - mvn clean install -f src/pom.xml
+#   post_build:
+#     commands:
+#       - echo project launch
+#       - echo Post-build phase
+#       - mkdir -p deployment
+#       - cp src/target/*.jar deployment/
+#       - cp -r scripts/ deployment/
+#       - cp -r scripts/stop_application.sh deployment/
+#       - cp appspec.yml deployment/
+#       - cd deployment
+#       - zip -r ../deployment.zip .
+# artifacts:
+#   files:
+#     - deployment.zip
+#     - appspec.yml
+#     - scripts/**
 # artifacts:
 #   files:
 #     - appspec.yml
