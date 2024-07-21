@@ -27,6 +27,7 @@ artifacts:
   files:
     - deployment.zip
     - appspec.yml
+    - scripts/
 # artifacts:
 #   files:
 #     - appspec.yml
