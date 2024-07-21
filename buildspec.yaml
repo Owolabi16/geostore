@@ -19,8 +19,8 @@ phases:
       - mkdir -p deployment
       - cp src/target/*.jar deployment/
       - cp -r scripts/ deployment/
-      - cp -r ./stop_application.sh deployment/
-      # - cp appspec.yml deployment/
+      - cp -r scripts/stop_application.sh deployment/
+      - cp appspec.yml deployment/
       - cd deployment
       - zip -r ../deployment.zip .
 artifacts:
