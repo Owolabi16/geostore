@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /target/*.jar
+  - source: /target/geostore-root-2.2-SNAPSHOT-tests.jar
     destination: /var/lib/tomcat/webapps/
 hooks:
   ApplicationStop:
