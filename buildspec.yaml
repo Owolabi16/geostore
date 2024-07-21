@@ -24,6 +24,7 @@ phases:
 artifacts:
   files:
     - deployment.zip
+    - appspec.yml
 # artifacts:
 #   files:
 #     - appspec.yml
