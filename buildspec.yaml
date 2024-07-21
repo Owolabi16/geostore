@@ -14,10 +14,19 @@ phases:
       - mvn clean install -f src/pom.xml
   post_build:
     commands:
-      - echo "Build completed"
+      - echo Post-build phase
+      - mkdir -p deployment
+      - cp target/*.jar deployment/
+      - cp -r scripts/ deployment/
+      - cp appspec.yml deployment/
+      - cd deployment
+      - zip -r ../deployment.zip .
 artifacts:
   files:
-    - appspec.yml
-    - scripts/**
-    - /target/*.jar
-  discard-paths: yes
+    - deployment.zip
+# artifacts:
+#   files:
+#     - appspec.yml
+#     - scripts/**
+#     - /target/*.jar
+#   discard-paths: yes
