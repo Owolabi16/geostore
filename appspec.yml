@@ -36,7 +36,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /opt/myapplication
+    destination: /opt/tomcat/webapps
     overwrite: yes
 hooks:
   ApplicationStop:
